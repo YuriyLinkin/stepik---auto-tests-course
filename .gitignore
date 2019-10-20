@@ -1,0 +1,7 @@
+.idea/workspace.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/stepik---auto-tests-course.iml
+.pytest_cache/
+__pycache__/
