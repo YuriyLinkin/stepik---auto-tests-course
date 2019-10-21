@@ -6,7 +6,8 @@ from selenium import webdriver
 @pytest.fixture(scope="function")
 def browser():
     print("\nstart browser for test..")
-    browser = webdriver.Chrome()
+    browser = webdriver.Firefox()
+    #browser = webdriver.Chrome()
     yield browser
     print("\nquit browser..")
     browser.quit()
@@ -16,14 +17,14 @@ def test_guest_should_open_every_newlink(browser, number):
     browser.get(f"https://stepik.org/lesson/{number}/step/1")
 
     print("\nfinding TextAreaElement and typing Answer...")
-    time.sleep(6)
+    time.sleep(2)
     answer = str(math.log(int(time.time())))
-    time.sleep(3)
+    time.sleep(1)
     browser.find_element_by_xpath("//*[@placeholder='Type your answer here...']").send_keys(answer)
-    time.sleep(3)
+    time.sleep(1)
     browser.find_element_by_css_selector("button.submit-submission").click()
 
-    time.sleep(3)
+    time.sleep(2)
     print("\nmatching pop-upMessage 'Correct!'...")
     assert "Correct!" == browser.find_element_by_css_selector("pre.smart-hints__hint").text
 
